@@ -2,10 +2,39 @@ package calculadora;
 
 import static org.junit.Assert.*;
 
+import org.junit.After;
+import org.junit.AfterClass;
+import org.junit.Before;
+import org.junit.BeforeClass;
 import org.junit.Test;
 
 public class CalculadoraTest {
-
+	static Calculadora calcu;
+	
+	@BeforeClass
+	public static void PreCaulculadora() {
+		calcu= new Calculadora(20, 30);
+		System.out.println("Preparando pruebas");
+		
+	}
+	@AfterClass
+	public static void pastCaulcu() {
+		System.out.println("Finalizando la calculadora");
+		calcu=null;
+	}
+	
+	
+	@Before
+	public void inciocalculadora() {
+		//calcu=new Calculadora(20,30);
+		System.out.println("inicio prueba");
+	}
+	@After
+	public void fincalculadora() {
+		//calcu=new Calculadora(20,30);
+		System.out.println("fin prueba");
+	}
+	
 	@Test
 	public void testSuma() {
 		Calculadora calcu= new Calculadora(20,30);
